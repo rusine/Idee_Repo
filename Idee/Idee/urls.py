@@ -1,17 +1,15 @@
 from django.conf.urls import patterns, include, url
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
+# Admin:
+from django.contrib import admin
+admin.autodiscover()
 
+# URLS:
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'Idee.views.home', name='home'),
-    # url(r'^Idee/', include('Idee.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+    url(r'^$', 'main.views.index'), # Main View
+    url(r'^login$', 'users.views.login'), # Login View
+    url(r'^logout$', 'users.views.logout'), # Logout View
+    url(r'^ideas$', 'main.views.ideas'), # Idea View
+    url(r'^signup$', 'users.view.signup'), #Signup View
+    url(r'^admin/', include(admin.site.urls)), # Admin
 )
